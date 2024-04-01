@@ -98,8 +98,6 @@ function validation() {
 }
 
 function clearFields(){
-  document.querySelector("#name").value = "";
   document.querySelector("#email").value = "";
   document.querySelector("#pwd").value = "";
-  document.querySelector("#cpwd").value = "";
 } 
