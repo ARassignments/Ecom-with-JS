@@ -153,4 +153,4 @@ function clearFields(){
     document.querySelector("#email").value = "";
     document.querySelector("#pwd").value = "";
     document.querySelector("#cpwd").value = "";
-}
+} 
