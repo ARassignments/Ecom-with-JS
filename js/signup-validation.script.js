@@ -10,6 +10,9 @@ const Toast = Swal.mixin({
     }
 });
 
+if(sessionStorage.getItem("loginStatus")){
+    window.location.href = "index.html";
+}
 
 function errorMSG(elementId,message,status){
     if(status === false){
@@ -116,7 +119,21 @@ function validation() {
                     status: 1
                 });
                 localStorage.setItem("Auth", JSON.stringify(getAuth));
-                Toast.fire({
+                const ToastFinal = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    },
+                    didClose: (toast)=>{
+                        window.location.href = "login.html";
+                    }
+                });
+                ToastFinal.fire({
                     icon: "success",
                     title: "Signup successful!"
                 });

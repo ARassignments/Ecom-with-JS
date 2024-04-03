@@ -27,8 +27,8 @@ if(document.querySelector("nav")){
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
                 </ul>
+                <a href="login.html" class="btn btn-primary px-3" id="loginBtn">Login</a>
             </div>
-            <a href="login.html" class="btn btn-primary px-3">Login</a>
         </div>
     `;
 }

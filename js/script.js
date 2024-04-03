@@ -47,3 +47,43 @@ function fetchProducts(filterName){
 
 fetchProducts("all");
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+    },
+    didClose: (toast) =>{
+        sessionStorage.removeItem("loginStatus");
+        window.location.href = "login.html";
+    }
+});
+
+if(document.querySelector("#loginBtn")){
+    if(sessionStorage.getItem("loginStatus")){
+        document.querySelector("#loginBtn").innerHTML = "Logout";
+        document.querySelector("#loginBtn").classList.replace("btn-primary","btn-danger");
+        document.querySelector("#loginBtn").removeAttribute("href");
+        document.querySelector("#loginBtn").onclick = ()=>{
+            Swal.fire({
+                title: "Are you sure?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Logout!"
+              }).then((result) => {
+                if (result.isConfirmed) {
+                    Toast.fire({
+                        icon: "success",
+                        title: "Logout successfully!"
+                    });
+                }
+              });
+        }
+    }
+}

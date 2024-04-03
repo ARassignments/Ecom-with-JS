@@ -11,19 +11,22 @@
 
 <body class="bg-light">
     <div class="container d-flex align-items-center justify-content-center" style="height: 100vh;">
-        <main class="form-signin col-md-4 text-center">
+        <main class="form-signin col-md-5 text-center">
             <form>
                 <img class="mb-4" src="images/logo.png" alt="" width="72" height="72">
                 <h1 class="h3 mb-3 fw-normal text-uppercase">Login</h1>
     
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="Enter Your Email here..." maxlength="40">
+                    <input type="email" class="form-control" id="email" placeholder="Enter Your Email here..." maxlength="40" onkeyup="emailValidation()">
                     <label for="email">Email Address Here...</label>
                 </div>
+                <div class="error" id="emailErr">email</div>
+
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="pwd" placeholder="Enter Your Password here..." maxlength="20">
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter Your Password here..." maxlength="20" onkeyup="pwdValidation()">
                     <label for="pwd">Password Here...</label>
                 </div>
+                <div class="error" id="pwdErr">password</div>
     
                 <div class="mb-3 d-flex justify-content-between">
                     <label class="checkbox">
