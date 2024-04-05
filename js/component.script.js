@@ -5,7 +5,7 @@ if(document.querySelector("nav")){
     document.querySelector("nav").classList.add("sticky-top");
     document.querySelector("nav").classList.add("shadow");
     document.querySelector("nav").innerHTML = `
-    <div class="container-fluid">
+    <div class="container-fluid p-3 px-5">
             <a class="navbar-brand" href="index.html">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -26,8 +26,12 @@ if(document.querySelector("nav")){
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact Us</a>
                     </li>
+                    <li>
+                        <a href="login.html" class="btn btn-primary px-3" id="loginBtn">Login</a>
+                        
+                        <a class="btn px-3 position-relative text-primary" id="addToCartBtn" data-bs-toggle="popover" data-bs-custom-class="custom-popover"  data-bs-title="Login Required" data-bs-content="Already have an Account? Login"><i class="bi bi-basket3-fill"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-warning d-none">1</span></a>
+                    </li>
                 </ul>
-                <a href="login.html" class="btn btn-primary px-3" id="loginBtn">Login</a>
             </div>
         </div>
     `;

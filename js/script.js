@@ -87,3 +87,17 @@ if(document.querySelector("#loginBtn")){
         }
     }
 }
+
+if(document.querySelector("#addToCartBtn")){
+    if(sessionStorage.getItem("loginStatus")){
+        document.querySelector("#addToCartBtn").removeAttribute("data-bs-custom-class");
+        document.querySelector("#addToCartBtn").removeAttribute("data-bs-title");
+        document.querySelector("#addToCartBtn").removeAttribute("data-bs-content");
+        document.querySelector("#addToCartBtn").setAttribute("data-bs-toggle","offcanvas");
+        document.querySelector("#addToCartBtn").setAttribute("data-bs-target","#offcanvasRight");
+        document.querySelector("#addToCartBtn").setAttribute("aria-controls","offcanvasRight");
+    }
+}
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
