@@ -1,64 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/config.css">
-    <link rel="shortcut icon" href="favicon.ico">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ecom Js</title>
+        <link rel="stylesheet" href="css/config.css">
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
 
-<body>
+    <body>
 
-    <nav></nav>
+        <nav></nav>
 
-    <section class="bannerSection py-5 bg-primary">
-        <div class="container py-5">
-            <h1 class="display-2 text-center text-light text-uppercase">product detail</h1>
-            <p class="text-center text-light fs-5 mt-3">This is Ecom website using with JS.</p>
-        </div>
-    </section>
+        <section class="bannerSection py-5 bg-primary">
+            <div class="container py-5">
+                <h1
+                    class="display-2 text-center text-light text-uppercase">product
+                    detail</h1>
+                <p class="text-center text-light fs-5 mt-3">This is Ecom website
+                    using with JS.</p>
+            </div>
+        </section>
 
-    <section class="productsDetailSection my-5 py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 d-flex justify-content-center mb-4">
-                    <img src="images/p1.jpg" alt="" id="pImage">
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <h1 class="display-4 text-capitalize text-secondary" id="pName">product title</h1>
-                    <p class="display-4 fs-5 text-capitalize">category: <span id="pCategory"></span></p>
-                    <p><span class="display-4 fs-5 text-capitalize">description: </span> <span id="pDesc"></span></p>
-                    <p class="display-4 fs-4 text-capitalize">price: Rs <span id="pPrice"></span></p>
-                    <p class="display-4 fs-4 text-capitalize d-flex gap-3 qtySection">quantity: <input type="number"
-                            class="w-25 form-control text-center" min="1" max="20" value="1" id="pQty"
-                            onchange="calcQty()" onkeyup="calcQty()" required></p>
-                    <button class="btn btn-outline-primary btn-lg text-capitalize px-5 mt-4 btnAddToCart">add to
-                        cart</button>
-                    <button class="btn btn-primary btn-lg text-capitalize px-5 mt-4 btnBuy">buy now</button>
-                    <button class="btn btn-dark btn-lg text-capitalize px-5 mt-4 d-none btnOutStock" disabled>Out Of
-                        Stock</button>
+        <section class="productsDetailSection my-5 py-5">
+            <div class="container">
+                <div class="row">
+                    <div
+                        class="col-lg-6 col-md-6 d-flex justify-content-center mb-4">
+                        <img src="images/p1.jpg" alt id="pImage">
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <h1 class="display-4 text-capitalize text-secondary"
+                            id="pName">product title</h1>
+                        <p class="display-4 fs-5 text-capitalize">category:
+                            <span id="pCategory"></span></p>
+                        <p><span
+                                class="display-4 fs-5 text-capitalize">description:
+                            </span> <span id="pDesc"></span></p>
+                        <p class="display-4 fs-4 text-capitalize">price: Rs
+                            <span id="pPrice"></span></p>
+                        <p
+                            class="display-4 fs-4 text-capitalize d-flex gap-3 qtySection">quantity:
+                            <input type="number"
+                                class="w-25 form-control text-center" min="1"
+                                max="20" value="1" id="pQty"
+                                onchange="calcQty()" onkeyup="calcQty()"
+                                required></p>
+                        <button
+                            class="btn btn-outline-primary btn-lg text-capitalize px-5 mt-4 btnAddToCart">add
+                            to
+                            cart</button>
+                        <button
+                            class="btn btn-primary btn-lg text-capitalize px-5 mt-4 btnBuy">buy
+                            now</button>
+                        <button
+                            class="btn btn-dark btn-lg text-capitalize px-5 mt-4 d-none btnOutStock"
+                            disabled>Out Of
+                            Stock</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <footer></footer>
+        <footer></footer>
 
-    <div id="offcanvasRight"></div>
+        <div id="offcanvasRight"></div>
 
-</body>
+    </body>
 
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/sweetalert2.min.js"></script>
-<script src="js/products.js"></script>
-<script src="js/component.script.js"></script>
-<script src="js/script.js"></script>
-<script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/sweetalert2.min.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/component.script.js"></script>
+    <script src="js/script.js"></script>
+    <script>
     let url = new URL(window.location.href);
     let id = url.searchParams.get("id");
-    document.title = "Products | " + products[id].pName;
+    document.title = "Ecom Js | Products | " + products[id].pName;
     document.querySelector("#pImage").src = "images/" + products[id].pImage;
     document.querySelector("#pName").innerHTML = products[id].pName;
     document.querySelector("#pCategory").innerHTML = products[id].pCategory;
@@ -82,11 +101,31 @@
         }
     }
 
+    if (sessionStorage.getItem("loginStatus")) {
+        if (localStorage.getItem("Auth")) {
+            if (localStorage.getItem("AddToCart")) {
+                let addToCartData = JSON.parse(localStorage.getItem("AddToCart"));
+                let addtoCartItemStatus = false;
+                let addtoCartItemIndex;
+                for (let i = 0; i < addToCartData.length; i++) {
+                    if (addToCartData[i].pid === parseInt(id) && addToCartData[i].uid === parseInt(sessionStorage.getItem("loginStatus"))) {
+                        addtoCartItemStatus = true;
+                        addtoCartItemIndex = i;
+                        break;
+                    }
+                }
+                if(addtoCartItemStatus){
+                    document.querySelector("#pQty").value = addToCartData[addtoCartItemIndex].qty;
+                }
+            }
+        }
+    }
+
     const Toaster = Swal.mixin({
         toast: true,
         position: "top-end",
         showConfirmButton: false,
-        timer: 3000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: (toast) => {
             toast.onmouseenter = Swal.stopTimer;
@@ -141,6 +180,7 @@
                         title: "Product Added To Cart!!!"
                     });
                 }
+                fetchAddToCart();
             }
         } else {
             Toaster.fire({
