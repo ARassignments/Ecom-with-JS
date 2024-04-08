@@ -66,19 +66,21 @@ function validation() {
             let getAuth = JSON.parse(localStorage.getItem("Auth"));
             let emailExists = false;
             let getPwdFromStorage = "";
+            let getUserIdFromStorage = "";
 
             for (let i = 0; i < getAuth.length; i++) {
                 if (getAuth[i].email === document.querySelector("#email").value.trim()) {
                     // Email already exists
                     emailExists = true;
                     getPwdFromStorage = getAuth[i].pwd;
+                    getUserIdFromStorage = i;
                     break;
                 }
             }
 
             if (emailExists) {
                 if (document.querySelector("#pwd").value.trim() === getPwdFromStorage) {
-                    sessionStorage.setItem("loginStatus","true");
+                    sessionStorage.setItem("loginStatus",getUserIdFromStorage);
                     const ToastFinal = Swal.mixin({
                         toast: true,
                         position: "top-end",
@@ -97,6 +99,7 @@ function validation() {
                         icon: "success",
                         title: "Login successfully!"
                     });
+                    document.querySelector("#btnSignin").classList.add("disabled");
                     clearFields();
                 } else {
                     Toast.fire({

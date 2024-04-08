@@ -29,7 +29,7 @@ if(document.querySelector("nav")){
                     <li>
                         <a href="login.html" class="btn btn-primary px-3" id="loginBtn">Login</a>
                         
-                        <a class="btn px-3 position-relative text-primary" id="addToCartBtn" data-bs-toggle="popover" data-bs-custom-class="custom-popover"  data-bs-title="Login Required" data-bs-content="Already have an Account? Login"><i class="bi bi-basket3-fill"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-warning d-none">1</span></a>
+                        <a class="btn px-3 position-relative text-primary" id="addToCartBtn" data-bs-toggle="popover" data-bs-custom-class="custom-popover" data-bs-title="Login Required" data-bs-content="Already have an Account? Login"><i class="bi bi-basket3-fill"></i> <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-warning d-none">0</span></a>
                     </li>
                 </ul>
             </div>
@@ -103,6 +103,25 @@ if(document.querySelector("footer")){
                                 <use xlink:href="#facebook"></use>
                             </svg></a></li>
                 </ul>
+            </div>
+        </div>
+    `;
+}
+
+if(document.querySelector("#offcanvasRight")){
+    document.querySelector("#offcanvasRight").classList.add("offcanvas");
+    document.querySelector("#offcanvasRight").classList.add("offcanvas-end");
+    document.querySelector("#offcanvasRight").setAttribute("tabindex","-1");
+    document.querySelector("#offcanvasRight").setAttribute("aria-labelledby","offcanvasRightLabel");
+    document.querySelector("#offcanvasRight").innerHTML = `
+    <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Add To Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="d-flex flex-column gap-4" id="addToCartContainer">
+                
+                
             </div>
         </div>
     `;
