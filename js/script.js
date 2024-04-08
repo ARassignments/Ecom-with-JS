@@ -1,3 +1,11 @@
+document.onreadystatechange = function () {
+    if (document.readyState !== "complete") {
+        document.querySelector(".preloader").classList.add("active");
+    } else {
+        document.querySelector(".preloader").classList.remove("active");
+    }
+};
+
 if(document.querySelector(".filter")){
     for(let i=0; i<categories.length; i++){
         document.querySelector(".filter").innerHTML += `
@@ -145,6 +153,7 @@ function fetchAddToCart(){
                         }
                     }
                 } else {
+                    document.querySelector("#addToCartBtn .badge").classList.add("d-none");
                     document.querySelector("#offcanvasRight #addToCartContainer").innerHTML += `
                         <div class="notfound d-flex flex-column gap-3 justify-content-center align-items-center">
                             <img src="images/notfound.svg" alt="" class="w-50">
@@ -231,6 +240,8 @@ function decreaseQtyCart(indexNo){
 
 
 fetchAddToCart();
+
+
 
 const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))

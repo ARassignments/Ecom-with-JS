@@ -198,3 +198,28 @@
         transform: translateY(0px);
     }
 }
+
+body:has(.preloader.active){
+    overflow-y: hidden;
+}
+
+.preloader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.preloader.active{
+    opacity: 1;
+    pointer-events: all;
+}

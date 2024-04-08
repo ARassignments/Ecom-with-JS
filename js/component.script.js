@@ -120,8 +120,10 @@ if(document.querySelector("#offcanvasRight")){
         </div>
         <div class="offcanvas-body">
             <div class="d-flex flex-column gap-4 pb-5" id="addToCartContainer">
-                
-                
+                <div class="notfound d-flex flex-column gap-3 justify-content-center align-items-center">
+                    <img src="images/notfound.svg" alt="" class="w-50">
+                    <h1 class="display-4 text-center text-uppercase fs-2 text-secondary">Empty Cart</h1>
+                </div>
             </div>
         </div>
     `;

@@ -10,6 +10,9 @@
     </head>
 
     <body>
+        <div class="preloader active">
+            <div class="spinner-border text-primary" role="status"></div>
+        </div>
 
         <nav></nav>
 
@@ -47,6 +50,8 @@
                                 max="20" value="1" id="pQty"
                                 onchange="calcQty()" onkeyup="calcQty()"
                                 required></p>
+
+                                <p class="badge text-bg-light text-secondary display-4 fs-6 fw-normal text-capitalize" id="pStock">Available Stock: </p><br>
                         <button
                             class="btn btn-outline-primary btn-lg text-capitalize px-5 mt-4 btnAddToCart">add
                             to
@@ -83,6 +88,7 @@
     document.querySelector("#pCategory").innerHTML = products[id].pCategory;
     document.querySelector("#pDesc").innerHTML = products[id].pDesc;
     document.querySelector("#pPrice").innerHTML = products[id].pPrice;
+    document.querySelector("#pStock").innerHTML = `Available Stock: ${products[id].pQty}`;
     document.querySelector("#pQty").setAttribute("max", products[id].pQty);
     document.querySelector("link[href='favicon.ico']").setAttribute("href", "images/" + products[id].pImage);
 
@@ -98,6 +104,9 @@
         if (parseInt(qty) > 0 && parseInt(qty) <= products[id].pQty) {
             let total = parseInt(products[id].pPrice) * parseInt(qty);
             document.querySelector("#pPrice").innerHTML = total;
+            document.querySelector("#pQty").classList.remove("is-invalid");
+        } else {
+            document.querySelector("#pQty").classList.add("is-invalid");
         }
     }
 
