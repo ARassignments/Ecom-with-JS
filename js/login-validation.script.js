@@ -1,4 +1,4 @@
-const Toast = Swal.mixin({
+const Toasts = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
@@ -102,20 +102,20 @@ function validation() {
                     document.querySelector("#btnSignin").classList.add("disabled");
                     clearFields();
                 } else {
-                    Toast.fire({
+                    Toasts.fire({
                         icon: "error",
                         title: "Your Email OR PWD is wrong!!!"
                     });
                 }
             }
         } else {
-            Toast.fire({
+            Toasts.fire({
                 icon: "error",
                 title: "Your Account is not Exist!!!"
             });
         }
     } else {
-        Toast.fire({
+        Toasts.fire({
             icon: "error",
             title: "All fields are required!!!"
         });

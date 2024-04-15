@@ -1,4 +1,4 @@
-const Toast = Swal.mixin({
+const Toasts = Swal.mixin({
     toast: true,
     position: "top-end",
     showConfirmButton: false,
@@ -101,7 +101,7 @@ function validation() {
             for (let i = 0; i < getAuth.length; i++) {
                 if (getAuth[i].email === document.querySelector("#email").value.trim()) {
                     // Email already exists
-                    Toast.fire({
+                    Toasts.fire({
                         icon: "error",
                         title: "Your account already exists!"
                     });
@@ -150,7 +150,7 @@ function validation() {
                 }
             ];
             localStorage.setItem("Auth", JSON.stringify(data));
-            Toast.fire({
+            Toasts.fire({
                 icon: "success",
                 title: "Signup successful!"
             });
@@ -158,7 +158,7 @@ function validation() {
         }
         
     } else {
-        Toast.fire({
+        Toasts.fire({
             icon: "error",
             title: "All fields are required!!!"
         });

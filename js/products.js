@@ -3,7 +3,7 @@ let products = [
     {
         pName:"Lemon",
         pImage:"p1.jpg",
-        pPrice:120,
+        pPrice:150,
         pQty:30,
         pDiscount:20,
         pDesc:"The lemon is a species of small evergreen tree in the flowering plant family Rutaceae, native to Asia, primarily Northeast India, Northern Myanmar, and China.",
@@ -34,7 +34,7 @@ let products = [
         pName:"Grapes",
         pImage:"p4.jpg",
         pPrice:130,
-        pQty:20,
+        pQty:40,
         pDiscount:0,
         pDesc:"A grape is a fruit, botanically a berry, of the deciduous woody vines of the flowering plant genus Vitis. Grapes are a non-climacteric type of fruit, generally occurring in clusters.",
         pCategory:categories[0],
